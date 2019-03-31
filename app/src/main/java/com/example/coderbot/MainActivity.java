@@ -3,6 +3,8 @@ package com.example.coderbot;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +19,9 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 Button b1,b2;
+    RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,24 @@ Button b1,b2;
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        String myDataset[]={"Coding","Algorithms","Quizzes","Competitions","CodeChef","ergerg7","ergergerg8"
+                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
+                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
+                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
+                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"};
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // specify an adapter (see also next example)
+        mAdapter = new MyAdapter(myDataset);
+        recyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -99,4 +122,5 @@ Button b1,b2;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
