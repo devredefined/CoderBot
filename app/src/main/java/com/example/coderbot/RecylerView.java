@@ -13,7 +13,11 @@ public class RecylerView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyler_view);
-         String myDataset[]={"15t45","2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"};
+         String myDataset[]={"Coding","Algorithms","Quizzes","Competitions","CodeChef","ergerg7","ergergerg8"
+                 ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
+                 ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
+                 ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
+                 ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"};
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         // use this setting to improve performance if you know that changes
