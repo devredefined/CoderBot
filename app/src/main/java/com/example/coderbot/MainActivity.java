@@ -39,11 +39,25 @@ Button b1,b2;
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        String myDataset[]={"Coding","Algorithms","Quizzes","Competitions","CodeChef","ergerg7","ergergerg8"
-                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
-                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
-                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"
-                ,"2dgdfg","dfgdg3","dfgerg4","5ergerg","ergerg7","ergergerg8"};
+        String myDataset[]={"Coding","Algorithms","Quizzes","Competitions","CodeChef","Hackerrank","Hackerearth"
+                ,"Geeksforgeeks","Project Euler","TopCoder","Coderbyte","CodeEval","Codewars",
+                "artificial intelligence",
+                "computer technology",
+                "computer-aided learning",
+                "computer-aided testing",
+                "cybernetics",
+                "data processing",
+                "information retrieval",
+                "information technology",
+                "natural language processing",
+                "neural networks",
+                "operating systems",
+                "programming",
+                "programming languages",
+                "robotics",
+                "simulation",
+                "systems analysis"};
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         // use this setting to improve performance if you know that changes

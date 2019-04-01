@@ -13,10 +13,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView textView;
+        public TextView textView,textView2,textView3,textView4;
         public MyViewHolder(View v) {
             super(v);
-            textView =  v.findViewById(R.id.examName);
+            textView =  v.findViewById(R.id.textViewShortDesc);
+            textView2 =  v.findViewById(R.id.textViewPrice);
+            textView3 =  v.findViewById(R.id.textViewRating);
+            textView4 =  v.findViewById(R.id.textViewTitle);
         }
     }
 
@@ -41,6 +44,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.textView.setText(mDataset[position]);
+        holder.textView2.setText(mDataset[position]);
+        holder.textView3.setText(mDataset[position]);
+        holder.textView4.setText(mDataset[position]);
 
     }
 
