@@ -37,7 +37,7 @@ public class SubMenu extends AppCompatActivity
     DatabaseReference databaseReference;
     ArrayList productList;
     Intent i;
-    String temp="";
+    String temp="";//j
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
