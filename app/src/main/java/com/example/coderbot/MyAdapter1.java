@@ -1,5 +1,6 @@
 package com.example.coderbot;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -17,12 +18,12 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
     private String[] mDataset;
     Context mCtx;
-    List<Product> productList;
+    List<Product1> productList;
 
-    public MyAdapter(Context mCtx, List<Product> productList) {
+    public MyAdapter1(Context mCtx, List<Product1> productList) {
         this.mCtx = mCtx;
         this.productList = productList;
     }
@@ -56,7 +57,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
+    public MyAdapter1.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                      int viewType) {
         // create a new view
 //        View v = LayoutInflater.from(parent.getContext())
@@ -79,15 +80,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //        holder.textView2.setText(mDataset[position]);
 //        holder.textView3.setText(mDataset[position]);
 //        holder.textView4.setText(mDataset[position]);
-        final Product product = productList.get(position);
-    holder.imageView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent i=new Intent(mCtx,SubMenu.class);
-            i.putExtra("a",product.getDetail());
-            mCtx.startActivity(i);
-        }
-    });
+        final Product1 product = productList.get(position);
+
         holder.textView.setText(product.getTitle());
         holder.textView2.setText(product.getDetail());
         String s=product.getImage();
@@ -106,15 +100,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //        holder.textView3.setText(product.getDetail());
 //        holder.textView4.setText(product.getDetail());
 
-    holder.b2.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+        holder.b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 //            Toast.makeText(mCtx, product.getDetail(), Toast.LENGTH_SHORT).show();
-        Intent i=new Intent(mCtx,SubMenu.class);
-        i.putExtra("a",product.getDetail());
-        mCtx.startActivity(i);
-        }
-    });
+                Intent i=new Intent(mCtx,SubMenu.class);
+                i.putExtra("a",product.getDetail());
+                mCtx.startActivity(i);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
