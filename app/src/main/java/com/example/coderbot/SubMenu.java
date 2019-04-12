@@ -37,7 +37,7 @@ public class SubMenu extends AppCompatActivity
     DatabaseReference databaseReference;
     ArrayList productList;
     Intent i;
-    String temp="";//j
+    String temp="",title="";//j
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,8 @@ public class SubMenu extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         i=getIntent();
         temp=i.getStringExtra("a");
+        title=i.getStringExtra("title");
+        getSupportActionBar().setTitle(title);
 //        String myDataset[]={"Coding","Algorithms","Quizzes","Competitions","CodeChef","Hackerrank","Hackerearth"
 //                ,"Geeksforgeeks","Project Euler","TopCoder","Coderbyte","CodeEval","Codewars",
 //                "artificial intelligence",
