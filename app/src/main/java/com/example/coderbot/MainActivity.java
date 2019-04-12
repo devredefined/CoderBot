@@ -95,7 +95,7 @@ Button b1,b2;
                     for(DataSnapshot productSnapshot: dataSnapshot.getChildren())
                     {
                         Product p = productSnapshot.getValue(Product.class);
-                        Toast.makeText(MainActivity.this, p.getDetail(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, p.getDetail(), Toast.LENGTH_SHORT).show();
                         productList.add(p);
                     }
                     mAdapter = new MyAdapter(MainActivity.this, productList);

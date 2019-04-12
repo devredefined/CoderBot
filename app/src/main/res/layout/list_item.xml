@@ -1,191 +1,251 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp">
+    <!--android:layout_margin="16dp"-->
 
-    <android.support.v7.widget.CardView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
-
-        <RelativeLayout
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/coding" />
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="120dp"
-                android:background="@drawable/coding"
-                android:layout_height="90dp"
-                android:padding="4dp" />
-
+            android:orientation="vertical"
+            android:padding="16dp">
             <TextView
+                android:layout_width="match_parent"
                 android:id="@+id/textViewTitle"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@id/imageView"
-                android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
-
+                android:layout_marginBottom="8dp"
+                android:textColor="#000"
+                android:textSize="18sp" />
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/textViewShortDesc"
+                android:textColor="#555" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewTitle"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/imageView"
-                android:text="13.3 Inch, 256 GB"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                android:text="Explore"
+                android:id="@+id/share"
+                android:theme="@style/PrimaryFlatButton" />
 
-            <TextView
-                android:id="@+id/textViewRating"
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewShortDesc"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/imageView"
-                android:background="@color/colorPrimary"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="4.7"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textViewPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textViewRating"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/imageView"
-                android:text="INR 56990"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-</LinearLayout>
-
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<RelativeLayout-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="150dp">-->
-
-
-    <!--<TextView-->
-        <!--android:layout_width="200dp"-->
-        <!--android:id="@+id/examName"-->
-        <!--android:textSize="30sp"-->
-        <!--android:layout_marginStart="20dp"-->
-        <!--android:text="First Exam"-->
-        <!--android:textColor="#000000"-->
-        <!--android:layout_marginEnd="20dp"-->
-        <!--android:maxLines="1"-->
-        <!--android:layout_marginTop="15dp"-->
-        <!--android:layout_height="wrap_content"/>-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/examPic"-->
-        <!--android:layout_width="20dp"-->
-        <!--android:layout_height="20dp"-->
-        <!--android:layout_below="@+id/examName"-->
-        <!--android:layout_marginStart="20dp"-->
-        <!--android:layout_marginLeft="20dp"-->
-        <!--android:layout_marginTop="7dp"-->
-        <!--android:tint="#808080"-->
-        <!--app:srcCompat="@drawable/ic_menu_gallery" />-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/examDate"-->
-        <!--android:layout_toEndOf="@+id/examPic"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/examName"-->
-        <!--android:layout_marginTop="5dp"-->
-        <!--android:layout_marginEnd="20dp"-->
-        <!--android:layout_marginStart="10dp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="May 23, 2015"-->
-        <!--android:textSize="16sp"-->
-        <!--android:layout_toRightOf="@+id/examPic"-->
-        <!--android:layout_marginRight="20dp"-->
-        <!--android:layout_marginLeft="10dp" />-->
-
-
-    <!--<ImageView-->
-        <!--android:id="@+id/examPic2"-->
-        <!--android:layout_width="20dp"-->
-        <!--android:layout_height="20dp"-->
-        <!--android:layout_below="@+id/examDate"-->
-        <!--android:layout_marginStart="20dp"-->
-        <!--android:layout_marginTop="7dp"-->
-        <!--android:tint="#808080"-->
-        <!--app:srcCompat="@drawable/ic_menu_camera"-->
-        <!--android:layout_marginLeft="20dp" />-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/examMessage"-->
-        <!--android:layout_toEndOf="@+id/examPic2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/examDate"-->
-        <!--android:layout_marginEnd="20dp"-->
-        <!--android:layout_marginTop="5dp"-->
-        <!--android:layout_marginStart="10dp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="Best Of Luck"-->
-        <!--android:textSize="16sp"-->
-        <!--android:layout_toRightOf="@+id/examPic2"-->
-        <!--android:layout_marginRight="20dp"-->
-        <!--android:layout_marginLeft="10dp" />-->
-
-
-    <!--<TextView-->
-        <!--android:id="@+id/border2"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:layout_marginStart="15dp"-->
-        <!--android:layout_marginEnd="15dp"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:background="#808080"/>-->
-
-
-<!--</RelativeLayout>-->
-
+                android:id="@+id/explore"
+                android:text="Share"
+                android:theme="@style/PrimaryFlatButton" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+    </RelativeLayout>
     <!--<?xml version="1.0" encoding="utf-8"?>-->
 <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
     <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="50dp"-->
+    <!--android:layout_height="wrap_content"-->
     <!--android:orientation="vertical">-->
 
-    <!--<TextView-->
-    <!--android:id="@+id/textView"-->
-    <!--android:layout_width="match_parent"-->
-        <!--android:gravity="center"-->
-    <!--android:layout_height="wrap_content" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/imageView2"-->
+    <!--<android.support.v7.widget.CardView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="left"-->
-        <!--app:srcCompat="@android:drawable/checkbox_on_background" />-->
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0.5dp"-->
-        <!--android:background="#000000"-->
-        <!--/>-->
+        <!--android:layout_margin="5dp">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="8dp">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView"-->
+                <!--android:layout_width="120dp"-->
+                <!--android:background="@drawable/coding"-->
+                <!--android:layout_height="90dp"-->
+                <!--android:padding="4dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textViewTitle"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_toRightOf="@id/imageView"-->
+                <!--android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"-->
+                <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"-->
+                <!--android:textColor="#000000" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textViewShortDesc"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/textViewTitle"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_toRightOf="@id/imageView"-->
+                <!--android:text="13.3 Inch, 256 GB"-->
+                <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textViewRating"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/textViewShortDesc"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_toRightOf="@id/imageView"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:paddingLeft="15dp"-->
+                <!--android:paddingRight="15dp"-->
+                <!--android:text="4.7"-->
+                <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textViewPrice"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/textViewRating"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_toRightOf="@id/imageView"-->
+                <!--android:text="INR 56990"-->
+                <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"-->
+                <!--android:textStyle="bold" />-->
+
+        <!--</RelativeLayout>-->
+
+    <!--</android.support.v7.widget.CardView>-->
 
 <!--</LinearLayout>-->
+
+<!--&lt;!&ndash;<?xml version="1.0" encoding="utf-8"?>&ndash;&gt;-->
+<!--&lt;!&ndash;<RelativeLayout&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:app="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="150dp">&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="200dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/examName"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="30sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="First Exam"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="#000000"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginEnd="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:maxLines="1"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/examPic"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@+id/examName"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="7dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:tint="#808080"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:srcCompat="@drawable/ic_menu_gallery" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/examDate"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_toEndOf="@+id/examPic"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@+id/examName"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginEnd="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="May 23, 2015"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="16sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_toRightOf="@+id/examPic"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginRight="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="10dp" />&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/examPic2"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@+id/examDate"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="7dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:tint="#808080"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:srcCompat="@drawable/ic_menu_camera"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="20dp" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/examMessage"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_toEndOf="@+id/examPic2"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@+id/examDate"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginEnd="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="Best Of Luck"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="16sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_toRightOf="@+id/examPic2"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginRight="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="10dp" />&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/border2"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="1dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginEnd="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:background="#808080"/>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;</RelativeLayout>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<?xml version="1.0" encoding="utf-8"?>&ndash;&gt;-->
+<!--&lt;!&ndash;<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:app="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="50dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:orientation="vertical">&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/textView"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/imageView2"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_gravity="left"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:srcCompat="@android:drawable/checkbox_on_background" />&ndash;&gt;-->
+    <!--&lt;!&ndash;<View&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="0.5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:background="#000000"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
