@@ -60,7 +60,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="Send"
-        android:background=""
+        android:background="@color/colorPrimary"
         android:layout_marginRight="21dp"
         android:layout_marginLeft="21dp"
         />
