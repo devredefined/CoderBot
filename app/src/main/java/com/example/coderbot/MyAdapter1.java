@@ -104,8 +104,8 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
             @Override
             public void onClick(View view) {
 //            Toast.makeText(mCtx, product.getDetail(), Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(mCtx,SubMenu.class);
-                i.putExtra("a",product.getDetail());
+                Intent i=new Intent(mCtx,Blog.class);
+                i.putExtra("b",product.getBlog());
                 mCtx.startActivity(i);
             }
         });
