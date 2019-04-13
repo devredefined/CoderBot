@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Blog">
 
-    <TextView
-        android:id="@+id/textView"
+    <WebView
+        android:id="@+id/wv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="TextView"
