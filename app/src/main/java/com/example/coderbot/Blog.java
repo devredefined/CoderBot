@@ -25,7 +25,8 @@ String yourData="";
 //            textView.setText(Html.fromHtml(ss, Html.FROM_HTML_MODE_COMPACT));
 //        } else {
 //            textView.setText(Html.fromHtml("<h2>Title</h2><br><p>Description here</p>"));
-//        }
+//        }4
+        //
         wv.loadData(yourData, "text/html", "UTF-8");
     }
 }
