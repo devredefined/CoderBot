@@ -154,7 +154,9 @@ Button b1,b2;
         if (id == R.id.nav_camera) {
             // Handle the camera action
 
-        }  else if (id == R.id.nav_slideshow) {
+        }  else if (id == R.id.nav_aboutus) {
+            Intent i=new Intent(MainActivity.this,About.class);
+            startActivity(i);
 
         }  else if (id == R.id.nav_share) {
 
