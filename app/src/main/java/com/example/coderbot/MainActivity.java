@@ -1,5 +1,6 @@
 package com.example.coderbot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -152,10 +153,15 @@ Button b1,b2;
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+
         }  else if (id == R.id.nav_slideshow) {
 
         }  else if (id == R.id.nav_share) {
 
+        }
+        else if(id==R.id.nav_request_topic){
+            Intent i=new Intent(MainActivity.this,RequestTopic.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

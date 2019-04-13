@@ -1,12 +1,16 @@
 package com.example.coderbot;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -47,6 +51,8 @@ public class SubMenu extends AppCompatActivity
         temp=i.getStringExtra("a");
         title=i.getStringExtra("title");
         getSupportActionBar().setTitle(title);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        String myDataset[]={"Coding","Algorithms","Quizzes","Competitions","CodeChef","Hackerrank","Hackerearth"
 //                ,"Geeksforgeeks","Project Euler","TopCoder","Coderbyte","CodeEval","Codewars",
 //                "artificial intelligence",
@@ -111,6 +117,22 @@ public class SubMenu extends AppCompatActivity
         });
 
     }
+             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+             @Override
+             public boolean onOptionsItemSelected(MenuItem item) {
+                 switch (item.getItemId()) {
+                     case android.R.id.home:
+                         if (getParentActivityIntent() == null) {
+                             Log.i("1234", "You have forgotten to specify the parentActivityName in the AndroidManifest!");
+                             onBackPressed();
+                         } else {
+                             NavUtils.navigateUpFromSameTask(this);
+                         }
+                         return true;
+                     default:
+                         return super.onOptionsItemSelected(item);
+                 }
+             }
 
 
 
