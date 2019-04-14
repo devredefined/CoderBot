@@ -28,6 +28,8 @@ String yourData="",title="";
         getSupportActionBar().setTitle(title);
         s=i.getStringExtra("b");
         wv=findViewById(R.id.wv);
+        wv.getSettings().setBuiltInZoomControls(true);
+        wv.getSettings().setDisplayZoomControls(false);
         yourData=s;
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 //            textView.setText(Html.fromHtml(ss, Html.FROM_HTML_MODE_COMPACT));

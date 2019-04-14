@@ -97,6 +97,15 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
                 mCtx.startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
         });
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(mCtx,Blog.class);
+                i.putExtra("b",product.getBlog());
+                i.putExtra("title",product.getTitle());
+                mCtx.startActivity(i);
+            }
+        });
 //        holder.textView3.setText(product.getDetail());
 //        holder.textView4.setText(product.getDetail());
 
