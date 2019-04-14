@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.Query;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +93,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.textView.setText(product.getTitle());
         holder.textView2.setText(product.getDetail());
         String s=product.getImage();
-        Picasso.get().load(s).into(holder.imageView);
+//        Picasso.get().load(s).into(holder.imageView);
+        Glide.with(mCtx).load(s).into(holder.imageView);
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
