@@ -48,16 +48,14 @@ ImageView gau,sau;
             }
         });
        // Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, arr[0]+"c", Toast.LENGTH_SHORT).show();
-        String link[]=complite.split("_split_");
-        Log.d("1234",complite);
+
 
     }
 
     private void imagesetter(String complite) {
         String ar[]=complite.split("_split_");
-        Glide.with(this).load(ar[0]).apply(RequestOptions.circleCropTransform()).into(gau);
-        Glide.with(this).load(ar[1]).apply(RequestOptions.circleCropTransform()).into(sau);
+        Glide.with(this).load(ar[0]).thumbnail(Glide.with(this).load(R.drawable.placeholdergif)).apply(RequestOptions.circleCropTransform()).into(gau);
+        Glide.with(this).load(ar[1]).thumbnail(Glide.with(this).load(R.drawable.placeholdergif)).apply(RequestOptions.circleCropTransform()).into(sau);
 
     }
 
