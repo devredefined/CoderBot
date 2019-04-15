@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -54,8 +55,8 @@ ImageView gau,sau;
 
     private void imagesetter(String complite) {
         String ar[]=complite.split("_split_");
-        Glide.with(this).load(ar[0]).thumbnail(Glide.with(this).load(R.drawable.placeholdergif)).apply(RequestOptions.circleCropTransform()).into(gau);
-        Glide.with(this).load(ar[1]).thumbnail(Glide.with(this).load(R.drawable.placeholdergif)).apply(RequestOptions.circleCropTransform()).into(sau);
+        Glide.with(this).load(ar[0]).thumbnail(Glide.with(this).load(R.drawable.placeholder1)).apply(RequestOptions.circleCropTransform()).into(gau);
+        Glide.with(this).load(ar[1]).thumbnail(Glide.with(this).load(R.drawable.placeholder1)).apply(RequestOptions.circleCropTransform()).into(sau);
 
     }
 

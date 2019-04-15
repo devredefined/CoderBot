@@ -94,7 +94,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.textView2.setText(product.getDetail());
         String s=product.getImage();
 //        Picasso.get().load(s).into(holder.imageView);
-        Glide.with(mCtx).load(s).thumbnail(Glide.with(mCtx).load(R.drawable.placeholdergif)).into(holder.imageView);
+        Glide.with(mCtx).load(s).thumbnail(Glide.with(mCtx).load(R.drawable.placeholder1)).into(holder.imageView);
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,5 +1,6 @@
 package com.example.coderbot;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class SubMenu extends AppCompatActivity
     RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    ProgressDialog progress;
     DatabaseReference databaseReference;
     ArrayList productList;
     Intent i;
@@ -53,6 +55,11 @@ public class SubMenu extends AppCompatActivity
         getSupportActionBar().setTitle(title);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        progress = new ProgressDialog(this);
+        progress.setMessage("Loading...");
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setCancelable(false);
+        progress.setIndeterminate(true);
 //        String myDataset[]={"Coding","Algorithms","Quizzes","Competitions","CodeChef","Hackerrank","Hackerearth"
 //                ,"Geeksforgeeks","Project Euler","TopCoder","Coderbyte","CodeEval","Codewars",
 //                "artificial intelligence",
@@ -76,6 +83,7 @@ public class SubMenu extends AppCompatActivity
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
+        progress.show();
 
         productList = new ArrayList<>();
 //        FirebaseApp.initializeApp(this);
@@ -96,6 +104,7 @@ public class SubMenu extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
                 {
+                    progress.cancel();
                     for(DataSnapshot productSnapshot: dataSnapshot.getChildren())
                     {
                         Product1 p = productSnapshot.getValue(Product1.class);
@@ -104,8 +113,9 @@ public class SubMenu extends AppCompatActivity
                         //Toast.makeText(SubMenu.this, p.getImage(), Toast.LENGTH_SHORT).show();
                     }
                     mAdapter = new MyAdapter1(SubMenu.this, productList);
-
+                    mAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(mAdapter);
+
 
                 }
             }

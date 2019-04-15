@@ -1,5 +1,6 @@
 package com.example.coderbot;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -31,16 +32,24 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 Button b1,b2;
+    ProgressDialog progress;
     RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     DatabaseReference databaseReference;
+    FirebaseDatabase mFirebaseInstance;
     ArrayList productList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        progress = new ProgressDialog(this);
+        progress.setMessage("Loading...");
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setCancelable(false);
+        progress.setIndeterminate(true);
+        mFirebaseInstance = FirebaseDatabase.getInstance();
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -76,7 +85,7 @@ Button b1,b2;
 
         productList = new ArrayList<>();
 //        FirebaseApp.initializeApp(this);
-        databaseReference= FirebaseDatabase.getInstance().getReference("RecyclerView");
+        databaseReference= mFirebaseInstance.getInstance().getReference("RecyclerView");
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         //recyclerView.setHasFixedSize(true);
@@ -88,20 +97,27 @@ Button b1,b2;
         // specify an adapter (see also next example)
         //mAdapter = new MyAdapter(myDataset);
        // recyclerView.setAdapter(mAdapter);
+        progress.show();
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
                 {
+                    progress.cancel();
                     for(DataSnapshot productSnapshot: dataSnapshot.getChildren())
                     {
                         Product p = productSnapshot.getValue(Product.class);
                         //Toast.makeText(MainActivity.this, p.getDetail(), Toast.LENGTH_SHORT).show();
                         productList.add(p);
+
+
                     }
                     mAdapter = new MyAdapter(MainActivity.this, productList);
 
+                    mAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(mAdapter);
+//                    mAdapter.notifyDataSetChanged();
+
                 }
             }
 
@@ -111,7 +127,15 @@ Button b1,b2;
             }
         });
 
-    }
+
+
+        }
+
+
+
+//    private void setupProgress(){
+//        progress.show();
+//
 
     @Override
     public void onBackPressed() {

@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 public class Blog extends AppCompatActivity {
@@ -28,15 +31,29 @@ String yourData="",title="";
         getSupportActionBar().setTitle(title);
         s=i.getStringExtra("b");
         wv=findViewById(R.id.wv);
-        wv.getSettings().setBuiltInZoomControls(true);
-        wv.getSettings().setDisplayZoomControls(false);
+//        wv.getSettings (). setUseWideViewPort (true);
+     //   wv.getSettings (). setLoadWithOverviewMode (true);
+//        wv.getSettings (). setSupportZoom (true);
+
         yourData=s;
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//            textView.setText(Html.fromHtml(ss, Html.FROM_HTML_MODE_COMPACT));
+//      wv       textView.setText(Html.fromHtml(ss, Html.FROM_HTML_MODE_COMPACT));
 //        } else {
 //            textView.setText(Html.fromHtml("<h2>Title</h2><br><p>Description here</p>"));
 //        }4
         //
+
+
+
+        wv.setVerticalFadingEdgeEnabled(false);
+        //mWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+        wv.getSettings().setJavaScriptEnabled(true);
+        //webSettings.setLoadWithOverviewMode(true);
+        //webSettings.setUseWideViewPort(true);
+        WebSettings ws = wv.getSettings();
+        //webSettings.setDefaultZoom(ZoomDensity.FAR);
+
+      
         wv.loadData(yourData, "text/html", "UTF-8");
     }
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
