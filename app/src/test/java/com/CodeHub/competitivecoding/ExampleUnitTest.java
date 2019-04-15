@@ -1,4 +1,4 @@
-package com.example.competitivecoding;
+package com.CodeHub.competitivecoding;
 
 import org.junit.Test;
 

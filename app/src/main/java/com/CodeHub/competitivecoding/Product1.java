@@ -1,4 +1,4 @@
-package com.example.competitivecoding;
+package com.CodeHub.competitivecoding;
 
 public class Product1 {
 

@@ -1,4 +1,5 @@
-package com.example.competitivecoding;
+package com.CodeHub.competitivecoding;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,12 +15,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
     private String[] mDataset;
     Context mCtx;
-    List<Product> productList;
+    List<Product1> productList;
 
-    public MyAdapter(Context mCtx, List<Product> productList) {
+    public MyAdapter1(Context mCtx, List<Product1> productList) {
         this.mCtx = mCtx;
         this.productList = productList;
     }
@@ -53,7 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
+    public MyAdapter1.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                      int viewType) {
         // create a new view
 //        View v = LayoutInflater.from(parent.getContext())
@@ -76,22 +77,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //        holder.textView2.setText(mDataset[position]);
 //        holder.textView3.setText(mDataset[position]);
 //        holder.textView4.setText(mDataset[position]);
-        final Product product = productList.get(position);
-    holder.imageView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent i=new Intent(mCtx,SubMenu.class);
-            i.putExtra("a",product.getId());
-            i.putExtra("title",product.getTitle());
+        final Product1 product = productList.get(position);
 
-            mCtx.startActivity(i);
-        }
-    });
         holder.textView.setText(product.getTitle());
         holder.textView2.setText(product.getDetail());
         String s=product.getImage();
 //        Picasso.get().load(s).into(holder.imageView);
         Glide.with(mCtx).load(s).thumbnail(Glide.with(mCtx).load(R.drawable.placeholder1)).into(holder.imageView);
+
         holder.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,26 +93,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 String shareBody = "An Engineer is a problem solver and competitive programming is the best way to brush up your problem solving skills, learn competitive coding from the very first app of this type on Play Store." +
                         " Study "+product.getTitle()+"  from CodeHub - First Competitive Programming App on Play Store" +
                         " Download Now - "+"https://play.google.com/store/apps/details?" +
-                        "id=com.example.competitivecoding";
+                        "id=com.CodeHub.competitivecoding";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 mCtx.startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
         });
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(mCtx,Blog.class);
+                i.putExtra("b",product.getBlog());
+                i.putExtra("title",product.getTitle());
+                mCtx.startActivity(i);
+            }
+        });
 //        holder.textView3.setText(product.getDetail());
 //        holder.textView4.setText(product.getDetail());
 
-    holder.b2.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+        holder.b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 //            Toast.makeText(mCtx, product.getDetail(), Toast.LENGTH_SHORT).show();
-        Intent i=new Intent(mCtx,SubMenu.class);
-        i.putExtra("a",product.getId());
-            i.putExtra("title",product.getTitle());
-
-            mCtx.startActivity(i);
-        }
-    });
+                Intent i=new Intent(mCtx,Blog.class);
+                i.putExtra("b",product.getBlog());
+                i.putExtra("title",product.getTitle());
+                mCtx.startActivity(i);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
