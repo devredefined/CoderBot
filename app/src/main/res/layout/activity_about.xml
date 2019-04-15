@@ -195,6 +195,7 @@
         android:background="#4C3F9A"
         android:text="Like us on Facebook"
         android:textColor="#ffffff"
+        android:id="@+id/likefb"
         android:textSize="24dp"
         android:gravity="center"
         android:textStyle="bold"
@@ -217,6 +218,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="11dp"
         android:layout_marginRight="11dp"
+        android:id="@+id/mailus"
         android:layout_weight="0.7"/>
 
     <TextView

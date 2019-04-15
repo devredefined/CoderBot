@@ -5,9 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,7 +20,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.CodeHub.competitivecoding.R;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +31,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
@@ -115,7 +123,6 @@ Button b1,b2;
                         startActivity(intent);
                         finish();
                     }
-
                 });
         alert = builder.create();
 
@@ -200,10 +207,8 @@ Button b1,b2;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-//            exit(0);
             super.onBackPressed();
         }
-
     }
 
     @Override
@@ -248,16 +253,21 @@ Button b1,b2;
 //            intent.putExtra(Intent.EXTRA_TEXT,"check download app");
 //            intent.setType("text/plain");
 //            startActivity(intent);
-
+String tp="An Engineer is a problem solver and competitive programming is the best way to brush up your problem solving skills, learn competitive coding from the very first app of this type on Play Store. Study Algorithms  from CodeHub - First Competitive Programming App on Play Store Download Now - https://play.google.com/store/apps/details?id=com.CodeHub.competitivecoding";
             Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
-            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My App Name");
-            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "ijnijsd hdfsnjinfids sifnfjisni ");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "CodeHub");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, tp);
             startActivity(Intent.createChooser(sharingIntent, "Share app via"));
 
         }
         else if(id==R.id.nav_request_topic){
             Intent i=new Intent(MainActivity.this,RequestTopic.class);
+            startActivity(i);
+        }
+        else if(id==R.id.nev_feedback)
+        {
+            Intent i=new Intent(MainActivity.this,ExpertAdvice.class);
             startActivity(i);
         }
 

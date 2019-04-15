@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -26,6 +28,7 @@ DatabaseReference databaseReference;
 String complite="";
 String arr[]=new String[1];
 ImageView gau,sau,gfb,ggit,glnk,sfb,sgit,slnk;
+TextView likefb,mailus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,8 @@ ImageView gau,sau,gfb,ggit,glnk,sfb,sgit,slnk;
         slnk=findViewById(R.id.imageview_linkdin_saurabh);
         gau=findViewById(R.id.circle_gaurav);
         sau=findViewById(R.id.circle_saurabh);
+        likefb=findViewById(R.id.likefb);
+        mailus=findViewById(R.id.mailus);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("About Us");
         linkclick();
@@ -62,6 +67,7 @@ ImageView gau,sau,gfb,ggit,glnk,sfb,sgit,slnk;
     }
 
     private void linkclick() {
+        String page="https://www.facebook.com/codehubapp/";
         gfb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,6 +127,30 @@ ImageView gau,sau,gfb,ggit,glnk,sfb,sgit,slnk;
                 startActivity(i);
             }
         });
+       likefb.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               String url = "https://www.facebook.com/codehubapp/";
+               Intent i = new Intent(Intent.ACTION_VIEW);
+               i.setData(Uri.parse(url));
+               startActivity(i);
+           }
+       });
+       mailus.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+               emailIntent.setData(Uri.parse("mailto:" + "dev.redefined@gmail.com"));
+               emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact mail - CodeHub");
+
+               try {
+                   startActivity(Intent.createChooser(emailIntent, "Send email using..."));
+               } catch (android.content.ActivityNotFoundException ex) {
+                   Toast.makeText(About.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+               }
+           }
+
+       });
 
 
     }
