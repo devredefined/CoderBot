@@ -1,8 +1,10 @@
 package com.CodeHub.competitivecoding;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -270,7 +272,15 @@ String tp="An Engineer is a problem solver and competitive programming is the be
             Intent i=new Intent(MainActivity.this,ExpertAdvice.class);
             startActivity(i);
         }
-
+        else  if(id==R.id.nav_rateus)
+        {
+            try{
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id="+getPackageName())));
+            }
+            catch (ActivityNotFoundException e){
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName())));
+            }
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
