@@ -1,5 +1,6 @@
 package com.example.coderbot;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -14,17 +15,24 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Blog extends AppCompatActivity {
 Intent i;
 String s;
 WebView wv;
 String yourData="",title="";
+ProgressDialog progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog);
         i=getIntent();
+        progress = new ProgressDialog(this);
+        progress.setMessage("Loading...");
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setCancelable(false);
+        progress.setIndeterminate(true);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         title=i.getStringExtra("title");
@@ -35,6 +43,7 @@ String yourData="",title="";
      //   wv.getSettings (). setLoadWithOverviewMode (true);
 //        wv.getSettings (). setSupportZoom (true);
 
+
         yourData=s;
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 //      wv       textView.setText(Html.fromHtml(ss, Html.FROM_HTML_MODE_COMPACT));
@@ -44,7 +53,7 @@ String yourData="",title="";
         //
 
 
-
+progress.show();
         wv.setVerticalFadingEdgeEnabled(false);
         //mWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
         wv.getSettings().setJavaScriptEnabled(true);
@@ -55,6 +64,20 @@ String yourData="",title="";
 
       
         wv.loadData(yourData, "text/html", "UTF-8");
+
+
+        wv.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public void onPageCommitVisible(WebView view,
+                                            String url) {
+                progress.cancel();
+            }
+        });
+
+
+
+
     }
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
