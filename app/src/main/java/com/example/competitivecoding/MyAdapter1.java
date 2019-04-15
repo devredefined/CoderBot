@@ -1,4 +1,4 @@
-package com.example.coderbot;
+package com.example.competitivecoding;
 
 
 import android.content.Context;
@@ -10,12 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
@@ -93,7 +90,10 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
             public void onClick(View view) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String shareBody = product.getTitle();
+                String shareBody = "An Engineer is a problem solver and competitive programming is the best way to brush up your problem solving skills, learn competitive coding from the very first app of this type on Play Store." +
+                        " Study "+product.getTitle()+"  from CodeHub - First Competitive Programming App on Play Store" +
+                        " Download Now - "+"https://play.google.com/store/apps/details?" +
+                        "id=com.example.competitivecoding";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 mCtx.startActivity(Intent.createChooser(sharingIntent, "Share via"));

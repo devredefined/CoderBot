@@ -1,4 +1,4 @@
-package com.example.coderbot;
+package com.example.competitivecoding;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,15 +7,11 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class Blog extends AppCompatActivity {
 Intent i;

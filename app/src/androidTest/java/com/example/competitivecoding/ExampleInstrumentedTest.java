@@ -1,4 +1,4 @@
-package com.example.coderbot;
+package com.example.competitivecoding;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.example.coderbot;
+package com.example.competitivecoding;
 
 public class Product {
 

@@ -1,4 +1,4 @@
-package com.example.coderbot;
+package com.example.competitivecoding;
 
 import android.content.Intent;
 import android.net.Uri;
