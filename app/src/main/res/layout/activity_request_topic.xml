@@ -61,6 +61,7 @@
         android:layout_weight="1"
         android:text="Send"
         android:background="@color/colorPrimary"
+        android:id="@+id/button_request_topic1"
         android:layout_marginRight="21dp"
         android:layout_marginLeft="21dp"
         />

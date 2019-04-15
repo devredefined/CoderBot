@@ -65,18 +65,23 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:src="@drawable/facebook"
+        android:id="@+id/imageview_fb_gaurav"
         />
     <ImageView
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:src="@drawable/github"
+
+        android:id="@+id/imageview_git_gaurav"
     />
     <ImageView
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:src="@drawable/linkdin"
+
+        android:id="@+id/imageview_linkdin_gaurav"
     />
 
 </LinearLayout>
@@ -148,18 +153,24 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/facebook"
+
+                android:id="@+id/imageview_fb_saurabh"
                 />
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/github"
+
+                android:id="@+id/imageview_git_saurabh"
                 />
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/linkdin"
+
+                android:id="@+id/imageview_linkdin_saurabh"
                 />
 
         </LinearLayout>

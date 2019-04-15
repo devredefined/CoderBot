@@ -1,11 +1,13 @@
 package com.example.coderbot;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -27,14 +29,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 Button b1,b2;
     ProgressDialog progress;
+    AlertDialog.Builder builder;
     RecyclerView recyclerView;
+    boolean check=false;
     private RecyclerView.Adapter mAdapter;
+    AlertDialog alert;
     private RecyclerView.LayoutManager layoutManager;
     DatabaseReference databaseReference;
     FirebaseDatabase mFirebaseInstance;
@@ -44,6 +52,7 @@ Button b1,b2;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         progress = new ProgressDialog(this);
         progress.setMessage("Loading...");
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -78,6 +87,7 @@ Button b1,b2;
 //                "simulation",
 //                "systems analysis"};
 
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
@@ -86,6 +96,7 @@ Button b1,b2;
         productList = new ArrayList<>();
 //        FirebaseApp.initializeApp(this);
         databaseReference= mFirebaseInstance.getInstance().getReference("RecyclerView");
+
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         //recyclerView.setHasFixedSize(true);
@@ -97,40 +108,92 @@ Button b1,b2;
         // specify an adapter (see also next example)
         //mAdapter = new MyAdapter(myDataset);
        // recyclerView.setAdapter(mAdapter);
-        progress.show();
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists())
-                {
-                    progress.cancel();
-                    for(DataSnapshot productSnapshot: dataSnapshot.getChildren())
-                    {
-                        Product p = productSnapshot.getValue(Product.class);
-                        //Toast.makeText(MainActivity.this, p.getDetail(), Toast.LENGTH_SHORT).show();
-                        productList.add(p);
+         builder = new AlertDialog.Builder(this);
+        builder.setMessage("Please connect to internet and ...")
+                .setCancelable(false)
+                .setPositiveButton("Connected ?", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                       // Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+                        //do things
+                        //onCreate();
+                        Intent intent = getIntent();
 
-
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
                     }
-                    mAdapter = new MyAdapter(MainActivity.this, productList);
+                });
+        alert = builder.create();
 
-                    mAdapter.notifyDataSetChanged();
-                    recyclerView.setAdapter(mAdapter);
-//                    mAdapter.notifyDataSetChanged();
 
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+        check=false;
+        try {
+            check=isConnected();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        recall();
 
-            }
-        });
 
 
 
         }
 
+    private void recall() {
+        check=false;
+        try {
+            check=isConnected();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        if(check){
+            progress.show();
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists())
+                    {
+                        progress.cancel();
+                        for(DataSnapshot productSnapshot: dataSnapshot.getChildren())
+                        {
+                            Product p = productSnapshot.getValue(Product.class);
+                            //Toast.makeText(MainActivity.this, p.getDetail(), Toast.LENGTH_SHORT).show();
+                            productList.add(p);
+
+
+                        }
+                        mAdapter = new MyAdapter(MainActivity.this, productList);
+
+                        mAdapter.notifyDataSetChanged();
+                        recyclerView.setAdapter(mAdapter);
+//                    mAdapter.notifyDataSetChanged();
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+        else
+        {
+//progress.cancel();
+            alert.show();
+
+         //   Toast.makeText(this, "Please connect  to Internet", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
 
 
 //    private void setupProgress(){
@@ -170,6 +233,7 @@ Button b1,b2;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -183,6 +247,17 @@ Button b1,b2;
             startActivity(i);
 
         }  else if (id == R.id.nav_share) {
+//            Intent intent = new Intent();
+//            intent.setAction(Intent.ACTION_SEND);
+//            intent.putExtra(Intent.EXTRA_TEXT,"check download app");
+//            intent.setType("text/plain");
+//            startActivity(intent);
+
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My App Name");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "ijnijsd hdfsnjinfids sifnfjisni ");
+            startActivity(Intent.createChooser(sharingIntent, "Share app via"));
 
         }
         else if(id==R.id.nav_request_topic){
@@ -194,5 +269,10 @@ Button b1,b2;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    public boolean isConnected() throws InterruptedException, IOException {
+        final String command = "ping -c 1 google.com";
+        return Runtime.getRuntime().exec(command).waitFor() == 0;
+    }
+
 
 }

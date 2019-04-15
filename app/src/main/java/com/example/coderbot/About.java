@@ -1,5 +1,7 @@
 package com.example.coderbot;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -8,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -24,15 +27,22 @@ FirebaseDatabase firebaseDatabase;
 DatabaseReference databaseReference;
 String complite="";
 String arr[]=new String[1];
-ImageView gau,sau;
+ImageView gau,sau,gfb,ggit,glnk,sfb,sgit,slnk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        gfb=findViewById(R.id.imageview_fb_gaurav);
+        ggit=findViewById(R.id.imageview_git_gaurav);
+        glnk=findViewById(R.id.imageview_linkdin_gaurav);
+        sfb=findViewById(R.id.imageview_fb_saurabh);
+        sgit=findViewById(R.id.imageview_git_saurabh);
+        slnk=findViewById(R.id.imageview_linkdin_saurabh);
         gau=findViewById(R.id.circle_gaurav);
         sau=findViewById(R.id.circle_saurabh);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("About Us");
+        linkclick();
         databaseReference=FirebaseDatabase.getInstance().getReference("about");
          databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -49,6 +59,70 @@ ImageView gau,sau;
             }
         });
        // Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    private void linkclick() {
+        gfb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.facebook.com/gkumarrai";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        ggit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://github.com/gaurav8354";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        glnk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://in.linkedin.com/in/gaurav-rai-139088141";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        sfb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.facebook.com/Singhsters";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        sgit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://github.com/littlesaurabh";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        slnk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.linkedin.com/in/singhster";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
 
 
     }

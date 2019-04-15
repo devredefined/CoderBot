@@ -53,7 +53,7 @@ ProgressDialog progress;
         //
 
 
-progress.show();
+        progress.show();
         wv.setVerticalFadingEdgeEnabled(false);
         //mWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
         wv.getSettings().setJavaScriptEnabled(true);
